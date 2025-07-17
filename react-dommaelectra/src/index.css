@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Open+Sans:wght@400;600;700&display=swap');
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', 'Montserrat', 'Open Sans', Arial, Verdana, sans-serif;
+  font-size: 1rem;
+  color: #222;
+  background: #f8f9fa;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+p, li, a, label, input, button, span {
+  font-size: 1rem;
+}
+
+.navbar-menu li a, .navbar-menu li.dropdown > a {
+  font-size: 1.1rem !important;
+  font-family: 'Orbitron', Arial, sans-serif;
+  letter-spacing: 0.12em;
+}
+
+.showcase-title, .logo-domma, .logo-electra {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 1.8rem !important;
+}
+
+.showcase-global-title {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 2.2rem !important;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #222 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+}
+
+.showcase-subtitle, .showcase-lista-title, .showcase-beneficios-title {
+  font-size: 1.2rem !important;
+}
+
+.showcase-desc, .showcase-lista li, .showcase-beneficios li, .footer, .footer-nav, .footer-copy {
+  font-size: 1rem !important;
+  font-family: 'Open Sans', Arial, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+.banner-btn, .navbar-cta, .footer-newsletter button {
+  font-size: 1rem !important;
+  font-family: 'Orbitron', Arial, sans-serif;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 700px) {
+  html {
+    font-size: 16px;
+  }
+  body {
+    font-size: 0.9rem !important;
+  }
+  .showcase-title, .logo-domma, .logo-electra {
+    font-size: 0.9rem !important;
+  }
+  .showcase-global-title {
+    font-size: 1.1rem !important;
+  }
+  .navbar-menu li a, .navbar-menu li.dropdown > a {
+    font-size: 0.7rem !important;
+  }
+  .showcase-desc, .showcase-lista li, .showcase-beneficios li, .footer, .footer-nav, .footer-copy {
+    font-size: 0.85rem !important;
+  }
+  .banner-btn, .navbar-cta, .footer-newsletter button {
+    font-size: 0.8rem !important;
+  }
+}
