@@ -4,9 +4,9 @@
   align-items: stretch;
   justify-content: center;
   width: 100vw;
-  min-height: 70px;
-  margin: 64px 0;
-  background: #2d0f13;
+  min-height: 400px;
+  margin: 0 0 64px 0;
+  background: #7B2C3B;
   border-radius: 0;
   box-shadow: none;
   overflow: hidden;
@@ -14,12 +14,12 @@
 }
 
 .sobre-texto-bloco {
-  flex: 1 1 0;
+  flex: 1 1 50%;
   min-width: 340px;
-  max-width: 1200px;
-  padding: 72px 64px;
-  color: #ffffff;
-  background: none;
+  max-width: 900px;
+  padding: 72px 64px 56px 64px;
+  color: #fff;
+  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -31,7 +31,7 @@
   font-family: 'Limelight', Arial, sans-serif;
   font-size: 1.8rem;
   margin-bottom: 18px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .sobre-texto-bloco h3 {
@@ -43,14 +43,14 @@
 .sobre-texto-bloco p {
   font-size: 1rem;
   margin-bottom: 24px;
-  color: #ffffff;
+  color: #fff;
 }
 
 @media (max-width: 900px) {
   .sobre-retangulo {
     flex-direction: column;
     min-height: 420px;
-    margin: 32px 0;
+    margin: 0 0 32px 0;
   }
   .sobre-texto-bloco {
     min-width: 0;
