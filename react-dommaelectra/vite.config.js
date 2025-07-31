@@ -13,6 +13,10 @@ export default defineConfig({
       output: {
         manualChunks: undefined
       }
-    }
+    },
+    target: 'es2015'
+  },
+  server: {
+    port: 3000
   }
 })
