@@ -33,7 +33,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-stack">
         <div className="footer-logo-row">
-          <img src="/logo.png" alt="Logo Domma Electra" className="footer-logo-img-large" />
+          <img src="/logo.webp" alt="Logo Domma Electra" className="footer-logo-img-large" />
           <span className="footer-slogan-large">Conectar • Proteger • Cuidar</span>
         </div>
         <nav className="footer-nav">

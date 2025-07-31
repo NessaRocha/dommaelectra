@@ -8,7 +8,7 @@ import './index.css'
 
 const showcaseSections = [
   {
-    src: '/automacao.jpg',
+    src: '/automacao.webp',
     alt: 'Automação Residencial',
     titulo: 'Automação Residencial',
     subtitulo: 'Conforto, praticidade e tecnologia na palma da sua mão',
@@ -30,7 +30,7 @@ const showcaseSections = [
     ]
   },
   {
-    src: '/acesso.jpg',
+    src: '/acesso.webp',
     alt: 'Acesso Inteligente',
     titulo: 'Acesso Inteligente',
     subtitulo: 'Segurança e praticidade sem precisar de chaves',
@@ -50,7 +50,7 @@ const showcaseSections = [
     ]
   },
   {
-    src: '/chuva.png',
+    src: '/chuva.webp',
     alt: 'Automação Climática Residencial',
     titulo: 'Automação Climática Residencial',
     subtitulo: 'Ambientes protegidos e inteligentes, faça sol ou faça chuva',
@@ -62,7 +62,7 @@ const showcaseSections = [
       'Alertas em tempo real no seu celular',
       'Desumidificadores automatizados por sensor',
       'Irrigação de jardim com sensores de umidade',
-      'Bomba d’água com acionamento por nível'
+      'Bomba d\'água com acionamento por nível'
     ],
     beneficios: [
       'Evita alagamentos e infiltrações',
@@ -73,7 +73,7 @@ const showcaseSections = [
     ]
   },
   {
-    src: '/luzconforto.png',
+    src: '/luzconforto.webp',
     alt: 'Ambientes Iluminados com Inteligência',
     titulo: 'Ambientes Iluminados com Inteligência',
     subtitulo: 'Ambientes que se adaptam ao seu ritmo e melhoram sua qualidade de vida',
@@ -96,7 +96,7 @@ const showcaseSections = [
     ]
   },
   {
-    src: '/personalizada.png',
+    src: '/personalizada.webp',
     alt: 'Automação Personalizada',
     titulo: 'Automação Personalizada',
     subtitulo: 'Cada detalhe pensado para sua rotina, seu espaço, seu jeito',

@@ -72,7 +72,14 @@ const Navbar = ({ slideAtivo }) => {
     <nav className={`navbar${slideAtivo === '/automacao.jpg' ? ' navbar-bordo' : ''}`}>
       <div className="navbar-container">
         <a href="/" className="navbar-logo" aria-label="Ir para a página inicial">
-          <img src="/logo.png" alt="Domma Electra Logo" className="logo-img" />
+          <img 
+            src="/logo.webp" 
+            alt="Domma Electra Logo" 
+            className="logo-img" 
+            loading="lazy"
+            width="40"
+            height="40"
+          />
           <span className="logo-text">
             <span className="logo-domma">DOMMA</span>
             <span className="logo-electra">ELECTRA</span>
