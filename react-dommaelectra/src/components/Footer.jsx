@@ -107,7 +107,7 @@ const Footer = () => {
               <a href='#quem'>Quem Sou Eu</a>
             </li>
             <li>
-              <a href='#orcamento'>Solicitar Orçamento</a>
+              <a href='https://wa.me/5551996138467?text=Olá! Gostaria de solicitar um orçamento para automação residencial.' target='_blank' rel='noopener noreferrer'>Solicitar Orçamento</a>
             </li>
           </ul>
         </nav>

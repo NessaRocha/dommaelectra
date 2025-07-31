@@ -108,7 +108,7 @@ const Navbar = () => {
 
         {/* Call-to-Action */}
         <div className='navbar-cta'>
-          <a href='#orcamento' className='navbar-button'>
+          <a href='https://wa.me/5551996138467?text=Olá! Gostaria de solicitar um orçamento para automação residencial.' className='navbar-button' target='_blank' rel='noopener noreferrer'>
             <span>Solicite seu orçamento</span>
           </a>
         </div>

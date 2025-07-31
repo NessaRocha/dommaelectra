@@ -361,6 +361,7 @@ body,
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    z-index: 1001;
   }
 
   .navbar-menu.active {
@@ -387,10 +388,18 @@ body,
   }
 
   .dropdown-menu {
-    position: static;
+    position: relative;
     background: rgba(255, 255, 255, 0.05);
     border: none;
     margin-top: 10px;
+    top: 0;
+    left: 0;
+    right: auto;
+    min-width: auto;
+    max-width: none;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 8px;
   }
 
   .navbar-toggle {
