@@ -55,7 +55,7 @@ const ShowcaseAlternado = ({ sections }) => {
                 </div>
               )}
               {item.benefits && (
-                <a href='#orcamento' className='banner-btn'>
+                <a href='https://wa.me/5551996138467?text=Olá! Gostaria de solicitar um orçamento para automação residencial.' className='banner-btn' target='_blank' rel='noopener noreferrer'>
                   <span>PEÇA SEU ORÇAMENTO</span>
                 </a>
               )}
