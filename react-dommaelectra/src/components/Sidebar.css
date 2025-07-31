@@ -8,7 +8,7 @@
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(8px);
-  z-index: 2000;
+  z-index: 3000;
   opacity: 1;
   visibility: visible;
   transition: all 0.3s ease;
@@ -32,7 +32,7 @@
   overflow-y: auto;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   transform: translateX(100%);
-  z-index: 2001;
+  z-index: 3001;
 }
 
 .sidebar-overlay.active .sidebar {

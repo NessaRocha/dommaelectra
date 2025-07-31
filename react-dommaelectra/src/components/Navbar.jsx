@@ -21,6 +21,18 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Fechar dropdown quando clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showDropdown && !event.target.closest('.dropdown')) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [showDropdown]);
+
   // Handlers para navegação e interação
   const handleServiceClick = serviceId => {
     setShowDropdown(false);
@@ -62,11 +74,6 @@ const Navbar = () => {
         {/* Menu de Navegação */}
         <div className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           <ul className='navbar-nav'>
-            <li className='nav-item'>
-              <a href='#home' className='nav-link'>
-                Lar
-              </a>
-            </li>
             <li className='nav-item dropdown'>
               <button
                 className='nav-link dropdown-toggle'
