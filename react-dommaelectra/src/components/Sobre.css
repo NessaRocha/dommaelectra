@@ -1,83 +1,272 @@
-.sobre-retangulo {
+/* ===== SOBRE SECTION ===== */
+
+/* Seção principal */
+.sobre-section {
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
-  width: 100vw;
-  min-height: 400px;
-  margin: 0 0 64px 0;
-  background: #7b2c3b;
-  border-radius: 0;
-  box-shadow: none;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.sobre-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Background com gradiente vermelho escuro */
+.sobre-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #7b2c3b 0%, #b04a5a 50%, #8a3a4a 100%);
+  z-index: 1;
+}
+
+.sobre-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  z-index: 2;
+}
+
+/* Container principal */
+.sobre-container {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+/* Conteúdo textual */
+.sobre-content {
+  color: white;
+}
+
+.sobre-title {
+  font-family: 'Limelight', Arial, sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
 }
 
-.sobre-texto-bloco {
-  flex: 1 1 50%;
-  min-width: 340px;
-  max-width: 900px;
-  padding: 72px 64px 56px 64px;
-  color: #fff;
-  background: transparent;
+.sobre-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #fff, transparent);
+  border-radius: 2px;
+}
+
+.sobre-text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: left;
+  gap: 20px;
 }
 
-.sobre-texto-bloco h2 {
-  font-family: 'Limelight', Arial, sans-serif;
-  font-size: 1.8rem;
-  margin-bottom: 18px;
-  color: #fff;
-}
-
-.sobre-texto-bloco h3 {
+.sobre-text p {
   font-size: 1.1rem;
-  margin-bottom: 28px;
-  color: #f4efeb;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.sobre-texto-bloco p {
-  font-size: 1rem;
-  margin-bottom: 24px;
+.sobre-highlight {
+  font-size: 1.2rem !important;
+  font-weight: 600;
+  color: white !important;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+  padding: 15px 20px;
+  border-radius: 8px;
+  border-left: 4px solid white;
+}
+
+.sobre-cta {
+  font-weight: 600 !important;
+  color: white !important;
+  font-style: italic;
+}
+
+/* Palavras-chave da empresa */
+.sobre-keywords {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0 40px 0;
+  flex-wrap: wrap;
+}
+
+.keyword-item {
+  position: relative;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  transform: translateY(0);
+  cursor: pointer;
+}
+
+.keyword-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.keyword-text {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.keyword-item:hover .keyword-text {
   color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 900px) {
-  .sobre-retangulo {
-    flex-direction: column;
-    min-height: 420px;
-    margin: 0 0 32px 0;
+/* Animação de entrada para as palavras-chave */
+.keyword-item:nth-child(1) {
+  animation: keywordSlideIn 0.8s ease 0.2s both;
+}
+
+.keyword-item:nth-child(2) {
+  animation: keywordSlideIn 0.8s ease 0.4s both;
+}
+
+.keyword-item:nth-child(3) {
+  animation: keywordSlideIn 0.8s ease 0.6s both;
+}
+
+@keyframes keywordSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
   }
-  .sobre-texto-bloco {
-    min-width: 0;
-    width: 100%;
-    padding: 32px 12px;
-    align-items: center;
-    text-align: center;
-  }
-  .sobre-texto-bloco h2 {
-    font-size: 1.2rem;
-  }
-  .sobre-texto-bloco h3 {
-    font-size: 0.85rem;
-  }
-  .sobre-texto-bloco p {
-    font-size: 0.8rem;
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
-@media (max-width: 600px) {
-  .sobre-texto-bloco h2 {
+
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 1100px) {
+  .sobre-container {
+    padding: 60px 30px;
+  }
+  
+  .sobre-title {
+    font-size: 2.2rem;
+  }
+  
+  .sobre-keywords {
+    gap: 20px;
+    margin: 25px 0 35px 0;
+  }
+  
+  .keyword-item {
+    padding: 10px 20px;
+  }
+  
+  .keyword-text {
     font-size: 1rem;
   }
-  .sobre-texto-bloco h3 {
-    font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .sobre-section {
+    min-height: auto;
+    padding: 60px 0;
   }
-  .sobre-texto-bloco p {
-    font-size: 0.75rem;
+  
+  .sobre-container {
+    padding: 40px 20px;
+  }
+  
+  .sobre-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .sobre-keywords {
+    gap: 15px;
+    margin: 20px 0 30px 0;
+  }
+  
+  .keyword-item {
+    padding: 8px 16px;
+  }
+  
+  .keyword-text {
+    font-size: 0.9rem;
+  }
+  
+  .sobre-text p {
+    font-size: 1rem;
+  }
+  
+  .sobre-highlight {
+    font-size: 1.1rem !important;
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sobre-container {
+    padding: 30px 15px;
+  }
+  
+  .sobre-title {
+    font-size: 1.5rem;
+  }
+  
+  .sobre-keywords {
+    gap: 10px;
+    margin: 15px 0 25px 0;
+  }
+  
+  .keyword-item {
+    padding: 6px 12px;
+  }
+  
+  .keyword-text {
+    font-size: 0.8rem;
+  }
+  
+  .sobre-text p {
+    font-size: 0.95rem;
+  }
+  
+  .sobre-highlight {
+    font-size: 1rem !important;
+    padding: 10px 12px;
   }
 }

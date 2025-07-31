@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { servicesArray } from '../data/services';
 import './Navbar.css';
 
+/**
+ * Componente Navbar - Barra de navegação principal
+ * @returns {JSX.Element} Componente da navbar
+ */
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,6 +21,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handlers para navegação e interação
   const handleServiceClick = serviceId => {
     setShowDropdown(false);
     setIsMobileMenuOpen(false);
@@ -45,6 +51,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className='navbar-container'>
+        {/* Logo/Brand */}
         <div className='navbar-brand'>
           <a href='#home' className='navbar-logo'>
             <img src='/logo.webp' alt='Domma Electra' />
@@ -52,11 +59,12 @@ const Navbar = () => {
           </a>
         </div>
 
+        {/* Menu de Navegação */}
         <div className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           <ul className='navbar-nav'>
             <li className='nav-item'>
               <a href='#home' className='nav-link'>
-                Home
+                Lar
               </a>
             </li>
             <li className='nav-item dropdown'>
@@ -98,20 +106,14 @@ const Navbar = () => {
           </ul>
         </div>
 
+        {/* Call-to-Action */}
         <div className='navbar-cta'>
-          <button
-            className='cta-button'
-            onClick={() => {
-              const element = document.getElementById('orcamento');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-          >
-            <span>Entre em Contato</span>
-          </button>
+          <a href='#orcamento' className='navbar-button'>
+            <span>Solicite seu orçamento</span>
+          </a>
         </div>
 
+        {/* Botão Mobile */}
         <button
           className={`navbar-toggle ${isMobileMenuOpen ? 'active' : ''}`}
           onClick={toggleMobileMenu}

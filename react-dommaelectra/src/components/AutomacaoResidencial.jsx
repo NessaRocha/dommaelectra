@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './AutomacaoResidencial.css';
 
+/**
+ * Componente AutomacaoResidencial - Banner principal com carrossel de slides
+ * @param {Function} setSlideAtivo - Função para definir o slide ativo na navbar
+ * @returns {JSX.Element} Componente do banner principal
+ */
 const AutomacaoResidencial = ({ setSlideAtivo }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -32,27 +37,9 @@ const AutomacaoResidencial = ({ setSlideAtivo }) => {
     },
   ];
 
-  const servicos = [
-    {
-      id: 1,
-      title: 'Iluminação Inteligente',
-      description: 'Controle de luzes por voz, app ou automação',
-      icon: '💡',
-    },
-    {
-      id: 2,
-      title: 'Sistema de Acesso',
-      description: 'Fechaduras eletrônicas e controle de entrada',
-      icon: '🔐',
-    },
-    {
-      id: 3,
-      title: 'Climatização',
-      description: 'Controle automático de temperatura e umidade',
-      icon: '🌡️',
-    },
-  ];
 
+
+  // Auto-play do carrossel
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length);
@@ -61,6 +48,7 @@ const AutomacaoResidencial = ({ setSlideAtivo }) => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
+  // Observer para detectar quando a seção está visível
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -89,7 +77,9 @@ const AutomacaoResidencial = ({ setSlideAtivo }) => {
       id='automacao-residencial'
       className={`automacao-residencial ${isVisible ? 'visible' : ''}`}
     >
-      <div className='banner-container'>
+      {/* Banner Container */}
+      <div className='slider-container'>
+        {/* Slides */}
         <div className='banner-slider'>
           {slides.map((slide, index) => (
             <div
@@ -109,6 +99,7 @@ const AutomacaoResidencial = ({ setSlideAtivo }) => {
           ))}
         </div>
 
+        {/* Navegação por dots */}
         <div className='banner-dots'>
           {slides.map((slide, index) => (
             <button
@@ -119,16 +110,6 @@ const AutomacaoResidencial = ({ setSlideAtivo }) => {
             />
           ))}
         </div>
-      </div>
-
-      <div className='servicos-grid'>
-        {servicos.map(servico => (
-          <div key={servico.id} className='servico-card'>
-            <div className='servico-icon'>{servico.icon}</div>
-            <h3 className='servico-title'>{servico.title}</h3>
-            <p className='servico-description'>{servico.description}</p>
-          </div>
-        ))}
       </div>
     </section>
   );

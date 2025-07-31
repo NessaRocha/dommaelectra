@@ -86,8 +86,8 @@ const Sidebar = ({ isOpen, service, onClose }) => {
           {renderFeatures()}
           {renderBenefits()}
 
-          <div className='sidebar-cta'>
-            <a href='#orcamento' className='sidebar-button'>
+          <div className='sidebar-cta' style={{ display: 'block', visibility: 'visible', marginTop: 'auto', paddingTop: '20px' }}>
+            <a href='#orcamento' className='sidebar-button' style={{ display: 'inline-block', width: '100%', padding: '15px 20px', background: 'linear-gradient(135deg, #7b2c3b, #b04a5a)', color: 'white', textDecoration: 'none', textAlign: 'center', borderRadius: '8px', fontFamily: 'Orbitron, Arial, sans-serif', fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em', transition: 'all 0.3s ease', border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(123, 44, 59, 0.3)' }}>
               Solicitar Orçamento
             </a>
           </div>

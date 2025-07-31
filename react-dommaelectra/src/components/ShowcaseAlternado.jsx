@@ -12,12 +12,12 @@ const ShowcaseAlternado = ({ sections }) => {
   });
 
   return (
-    <section className='showcase-section'>
+    <section className='showcase-alternado'>
       {sections.map((item, idx) => {
         const sectionId = generateSectionId(item.title);
         return (
           <div
-            className={`showcase-item ${idx % 2 === 0 ? 'left' : 'right'}`}
+            className={`showcase-row ${idx % 2 === 0 ? 'img-left' : 'img-right'}`}
             key={item.id}
             id={sectionId}
             aria-label={`Seção ${item.title}`}
