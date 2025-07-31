@@ -34,7 +34,7 @@
 .footer-slogan-large {
   font-family: 'Limelight', Arial, sans-serif;
   font-size: 2.1rem;
-  color: #7B2C3B;
+  color: #7b2c3b;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-align: left;
@@ -65,7 +65,7 @@
 }
 .footer-nav a:hover,
 .footer-nav a.active {
-  color: #7B2C3B;
+  color: #7b2c3b;
 }
 .footer-nav a:hover::after,
 .footer-nav a.active::after {
@@ -73,7 +73,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background: #7B2C3B;
+  background: #7b2c3b;
   position: absolute;
   left: 0;
   bottom: -2px;
@@ -87,9 +87,9 @@
   align-items: center;
   margin: 0 auto;
 }
-.footer-newsletter input[type="email"] {
+.footer-newsletter input[type='email'] {
   padding: 10px 16px;
-  border: 1.5px solid #7B2C3B;
+  border: 1.5px solid #7b2c3b;
   border-radius: 6px;
   font-size: 1.08rem;
   font-family: inherit;
@@ -100,7 +100,7 @@
 }
 .footer-newsletter button {
   padding: 10px 28px;
-  background: #7B2C3B;
+  background: #7b2c3b;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -112,7 +112,7 @@
   transition: background 0.2s;
 }
 .footer-newsletter button:hover {
-  background: #2B1821;
+  background: #2b1821;
 }
 
 .footer-social-row {
@@ -123,7 +123,7 @@
   margin: 8px 0 0 0;
 }
 .footer-social-row a {
-  color: #7B2C3B;
+  color: #7b2c3b;
   background: #fff;
   border-radius: 50%;
   width: 44px;
@@ -133,19 +133,22 @@
   justify-content: center;
   font-size: 1.4rem;
   box-shadow: 0 2px 8px #0001;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
   border: 1.5px solid #e0d8d2;
 }
 .footer-social-row a:hover {
-  background: #7B2C3B;
+  background: #7b2c3b;
   color: #fff;
-  box-shadow: 0 4px 16px #7B2C3B33;
+  box-shadow: 0 4px 16px #7b2c3b33;
 }
 
 .footer-up-large {
   margin: 18px auto 0 auto;
-  background: #7B2C3B;
-  border: 2.5px solid #2B1821;
+  background: #7b2c3b;
+  border: 2.5px solid #2b1821;
   border-radius: 50%;
   width: 56px;
   height: 56px;
@@ -154,12 +157,14 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 8px #0001;
-  transition: background 0.2s, border 0.2s;
+  transition:
+    background 0.2s,
+    border 0.2s;
   z-index: 10;
 }
 .footer-up-large:hover {
-  background: #2B1821;
-  border-color: #7B2C3B;
+  background: #2b1821;
+  border-color: #7b2c3b;
 }
 .footer-up-large svg {
   display: block;
@@ -187,7 +192,7 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 
@@ -195,7 +200,7 @@
   position: fixed;
   right: 32px;
   bottom: 32px;
-  background: #7B2C3B;
+  background: #7b2c3b;
   border: none;
   border-radius: 50%;
   width: 48px;
@@ -205,12 +210,15 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 4px 16px #0002;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
   z-index: 1000;
 }
-.footer-up-float:hover, .footer-up-float:focus {
-  background: #2B1821;
-  box-shadow: 0 6px 24px #7B2C3B33;
+.footer-up-float:hover,
+.footer-up-float:focus {
+  background: #2b1821;
+  box-shadow: 0 6px 24px #7b2c3b33;
   outline: 2px solid #fff;
 }
 .footer-up-float svg {
@@ -236,7 +244,7 @@
   .footer-nav ul {
     gap: 14px;
   }
-  .footer-newsletter input[type="email"] {
+  .footer-newsletter input[type='email'] {
     width: 120px;
     font-size: 0.98rem;
   }
@@ -253,4 +261,4 @@
     width: 38px;
     height: 38px;
   }
-} 
+}

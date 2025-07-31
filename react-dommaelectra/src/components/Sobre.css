@@ -6,7 +6,7 @@
   width: 100vw;
   min-height: 400px;
   margin: 0 0 64px 0;
-  background: #7B2C3B;
+  background: #7b2c3b;
   border-radius: 0;
   box-shadow: none;
   overflow: hidden;
@@ -37,7 +37,7 @@
 .sobre-texto-bloco h3 {
   font-size: 1.1rem;
   margin-bottom: 28px;
-  color: #F4EFEB;
+  color: #f4efeb;
 }
 
 .sobre-texto-bloco p {
@@ -80,4 +80,4 @@
   .sobre-texto-bloco p {
     font-size: 0.75rem;
   }
-} 
+}

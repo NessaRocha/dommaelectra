@@ -1,59 +1,65 @@
-import React from "react";
-import "./ShowcaseAlternado.css";
+import React from 'react';
+import { useMultiScrollAnimation } from '../hooks/useScrollAnimation';
+import { generateSectionId } from '../data/services';
+import './ShowcaseAlternado.css';
 
 const ShowcaseAlternado = ({ sections }) => {
+  const sectionRefs = useMultiScrollAnimation([], {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px',
+    triggerOnce: true,
+    animationClass: 'animate',
+  });
+
   return (
-    <section className="showcase-alternado" id="ajuda-detalhes">
-      <h2 className="showcase-global-title">Como Posso Ajudar</h2>
+    <section className='showcase-section'>
       {sections.map((item, idx) => {
-        // Criar ID baseado no título
-        const sectionId = item.titulo
-          .toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .replace(/\s+/g, '-')
-          .replace(/[^a-z0-9-]/g, '');
-        
+        const sectionId = generateSectionId(item.title);
         return (
           <div
-            className={`showcase-row ${idx % 2 === 0 ? "img-left" : "img-right"}`}
-            key={item.titulo}
+            className={`showcase-item ${idx % 2 === 0 ? 'left' : 'right'}`}
+            key={item.id}
             id={sectionId}
-            tabIndex="-1"
-            role="region"
-            aria-label={`Seção ${item.titulo}`}
+            aria-label={`Seção ${item.title}`}
+            ref={el => (sectionRefs.current[idx] = el)}
           >
-          <div className="showcase-img-bloco">
-            <img src={item.src} alt={item.alt} className="showcase-img" />
-          </div>
-          <div className="showcase-content-bloco">
-            <h3 className="showcase-title">{item.titulo}</h3>
-            {item.subtitulo && <h3 className="showcase-subtitle">{item.subtitulo}</h3>}
-            {item.descricao && <div className="showcase-desc">{item.descricao}</div>}
-            {item.lista && (
-              <div className="showcase-lista-bloco">
-                <h4 className="showcase-lista-title">{item.listaTitulo}</h4>
-                <ul className="showcase-lista">
-                  {item.lista.map((li, i) => (
-                    <li key={i}>{li}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {item.beneficios && (
-              <div className="showcase-beneficios-bloco">
-                <h4 className="showcase-beneficios-title">Benefícios:</h4>
-                <ul className="showcase-beneficios">
-                  {item.beneficios.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {item.beneficios && (
-              <a href="#orcamento" className="banner-btn"><span>PEÇA SEU ORÇAMENTO</span></a>
-            )}
-          </div>
+            <div className='showcase-img-bloco'>
+              <img src={item.image} alt={item.alt} className='showcase-img' />
+            </div>
+            <div className='showcase-content-bloco'>
+              <h3 className='showcase-title'>{item.title}</h3>
+              {item.subtitle && <h3 className='showcase-subtitle'>{item.subtitle}</h3>}
+              {item.description && <div className='showcase-desc'>{item.description}</div>}
+              {item.features && (
+                <div className='showcase-lista-bloco'>
+                  <h4 className='showcase-lista-title'>O que você pode ter:</h4>
+                  <ul className='showcase-lista'>
+                    {item.features.map((feature, _featureIndex) => (
+                      <li key={`${item.id}-feature-${feature.replace(/\s+/gu, '-').toLowerCase()}`}>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {item.benefits && (
+                <div className='showcase-beneficios-bloco'>
+                  <h4 className='showcase-beneficios-title'>Benefícios:</h4>
+                  <ul className='showcase-beneficios'>
+                    {item.benefits.map((benefit, _benefitIndex) => (
+                      <li key={`${item.id}-benefit-${benefit.replace(/\s+/gu, '-').toLowerCase()}`}>
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {item.benefits && (
+                <a href='#orcamento' className='banner-btn'>
+                  <span>PEÇA SEU ORÇAMENTO</span>
+                </a>
+              )}
+            </div>
           </div>
         );
       })}
@@ -61,4 +67,4 @@ const ShowcaseAlternado = ({ sections }) => {
   );
 };
 
-export default ShowcaseAlternado; 
+export default ShowcaseAlternado;

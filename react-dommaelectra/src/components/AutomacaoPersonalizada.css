@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/personalizada.png') center/cover;
+  background: url('/personalizada.webp') center/cover;
   opacity: 0.05;
   z-index: 0;
 }
@@ -56,7 +56,7 @@
   font-family: 'Orbitron', monospace;
   font-weight: 900;
   font-size: 1.2rem;
-  color: #B04A5A;
+  color: #b04a5a;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -113,7 +113,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #B04A5A, #7B2C3B);
+  background: linear-gradient(90deg, #b04a5a, #7b2c3b);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -189,7 +189,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  color: #B04A5A;
+  color: #b04a5a;
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -279,11 +279,11 @@
   .content {
     transition: none;
   }
-  
+
   .solution-card {
     transition: none;
   }
-  
+
   .solution-card:hover {
     transform: none;
   }
@@ -291,12 +291,12 @@
 
 /* Focus styles for accessibility */
 .solution-card:focus-within {
-  outline: 2px solid #B04A5A;
+  outline: 2px solid #b04a5a;
   outline-offset: 2px;
 }
 
 .benefits-list li:focus-within {
-  outline: 2px solid #B04A5A;
+  outline: 2px solid #b04a5a;
   outline-offset: 2px;
   border-radius: 4px;
-} 
+}

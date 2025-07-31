@@ -1,121 +1,137 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./AutomacaoResidencial.css";
-// import ZigZagImagens from './ZigZagImagens';
-
-const slides = [
-  {
-    img: "/automacao.jpg",
-    titulo: "Automação Residencial",
-    subtitulo: "Conforto, praticidade e tecnologia na palma da sua mão"
-  },
-  {
-    img: "/acesso.jpg",
-    titulo: "Acesso Inteligente",
-    subtitulo: "Controle de portas, portões e segurança pelo app ou comando de voz."
-  },
-  {
-    img: "/chuva.png",
-    titulo: "Chuva de Conforto",
-    subtitulo: "Sensores e automação para ambientes sempre agradáveis, sem esforço."
-  },
-  {
-    img: "/luzconforto.png",
-    titulo: "Luz & Conforto",
-    subtitulo: "Cenários de iluminação e clima para cada momento do seu dia."
-  }
-];
-
-const servicos = [
-  {
-    img: "/chuva.png",
-    alt: "Chuva de Conforto",
-    titulo: "Chuva de Conforto",
-    desc: "Sensores e automação para ambientes sempre agradáveis, sem esforço."
-  },
-  {
-    img: "/acesso.jpg",
-    alt: "Acesso Inteligente",
-    titulo: "Acesso Inteligente",
-    desc: "Controle de portas, portões e segurança pelo app ou comando de voz."
-  },
-  {
-    img: "/luzconforto.png",
-    alt: "Luz & Conforto",
-    titulo: "Luz & Conforto",
-    desc: "Cenários de iluminação e clima para cada momento do seu dia."
-  }
-];
-
-const WhatsAppIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M23.5 20.5c-.3-.2-1.8-.9-2.1-1-0.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-2-.8-3.3-2.8-3.5-3.2-.1-.2 0-.5.1-.6.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2.2-.3.1-.2.1-.4 0-.6-0.1-.2-.7-1.7-1-2.3-.2-.5-.4-.4-.7-.4h-.6c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.5s1 2.9 1.1 3.1c.1.2 2.1 3.3 5.2 4.4.7.2 1.2.3 1.6.2.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2z" fill="#fff"/></svg>
-);
+import React, { useState, useEffect } from 'react';
+import './AutomacaoResidencial.css';
 
 const AutomacaoResidencial = ({ setSlideAtivo }) => {
-  const [current, setCurrent] = useState(0);
-  const timeoutRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // Autoplay com pausa ao interagir
+  const slides = [
+    {
+      id: 1,
+      title: 'Automação Residencial',
+      subtitle: 'Transforme sua casa em um lar inteligente',
+      description: 'Controle iluminação, temperatura, segurança e muito mais com apenas um toque.',
+      image: '/automacao.webp',
+      cta: 'Solicitar Orçamento',
+    },
+    {
+      id: 2,
+      title: 'Sistemas de Segurança',
+      subtitle: 'Proteção 24 horas para sua família',
+      description: 'Câmeras inteligentes, sensores de movimento e alarmes integrados.',
+      image: '/acesso.webp',
+      cta: 'Conhecer Soluções',
+    },
+    {
+      id: 3,
+      title: 'Controle Climático',
+      subtitle: 'Conforto térmico personalizado',
+      description: 'Ar condicionado, ventilação e umidificação controlados automaticamente.',
+      image: '/chuva.webp',
+      cta: 'Ver Detalhes',
+    },
+  ];
+
+  const servicos = [
+    {
+      id: 1,
+      title: 'Iluminação Inteligente',
+      description: 'Controle de luzes por voz, app ou automação',
+      icon: '💡',
+    },
+    {
+      id: 2,
+      title: 'Sistema de Acesso',
+      description: 'Fechaduras eletrônicas e controle de entrada',
+      icon: '🔐',
+    },
+    {
+      id: 3,
+      title: 'Climatização',
+      description: 'Controle automático de temperatura e umidade',
+      icon: '🌡️',
+    },
+  ];
+
   useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
+    const timer = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % slides.length);
     }, 5000);
-    return () => clearTimeout(timeoutRef.current);
-  }, [current]);
+
+    return () => clearInterval(timer);
+  }, [slides.length]);
 
   useEffect(() => {
-    if (setSlideAtivo) setSlideAtivo(slides[current].img);
-  }, [current, setSlideAtivo]);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          setSlideAtivo('automacao-residencial');
+        }
+      },
+      { threshold: 0.3 }
+    );
 
-  const goTo = (idx) => {
-    clearTimeout(timeoutRef.current);
-    setCurrent(idx);
-  };
+    const element = document.getElementById('automacao-residencial');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, [setSlideAtivo]);
 
   return (
-    <section className="ajuda-hero-section" id="ajuda">
-      <div className="slider-container">
-        {slides.map((slide, idx) => (
-          <div
-            key={idx}
-            className={`slide${idx === current ? " active" : ""}`}
-            style={{ backgroundImage: `url(${slide.img})` }}
-            aria-hidden={idx !== current}
-          >
-            <div className="slide-content">
-              <h1>{slide.titulo}</h1>
-              <h2>{slide.subtitulo}</h2>
-              <a href="#orcamento" className="banner-btn"><span>PEÇA SEU ORÇAMENTO</span></a>
+    <section
+      id='automacao-residencial'
+      className={`automacao-residencial ${isVisible ? 'visible' : ''}`}
+    >
+      <div className='banner-container'>
+        <div className='banner-slider'>
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`slide ${index === currentSlide ? 'active' : ''}`}
+              style={{ backgroundImage: `url(${slide.image})` }}
+            >
+              <div className='slide-content'>
+                <h1 className='slide-title'>{slide.title}</h1>
+                <h2 className='slide-subtitle'>{slide.subtitle}</h2>
+                <p className='slide-description'>{slide.description}</p>
+                <a href='#orcamento' className='banner-btn'>
+                  <span>{slide.cta}</span>
+                </a>
+              </div>
             </div>
+          ))}
+        </div>
+
+        <div className='banner-dots'>
+          {slides.map((slide, index) => (
+            <button
+              key={`dot-${slide.id}`}
+              className={`dot ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(index)}
+              aria-label={`Ir para slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className='servicos-grid'>
+        {servicos.map(servico => (
+          <div key={servico.id} className='servico-card'>
+            <div className='servico-icon'>{servico.icon}</div>
+            <h3 className='servico-title'>{servico.title}</h3>
+            <p className='servico-description'>{servico.description}</p>
           </div>
         ))}
-        {/* Navegação premium */}
-        <div className="slider-navigation-wrapper">
-          <div className="slider-line"></div>
-          <div className="slider-dots">
-            {slides.map((_, idx) => (
-              <button
-                key={idx}
-                className={`slider-dot${current === idx ? " active" : ""}`}
-                aria-label={`Ir para slide ${idx + 1}`}
-                onClick={() => goTo(idx)}
-              />
-            ))}
-          </div>
-        </div>
-        {/* Removidas as setas laterais */}
       </div>
-      {/* <ZigZagImagens /> */}
-      <a
-        href="https://wa.me/5551996138467"
-        className="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Fale conosco no WhatsApp"
-      >
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M23.5 20.5c-.3-.2-1.8-.9-2.1-1-0.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-2-.8-3.3-2.8-3.5-3.2-.1-.2 0-.5.1-.6.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2.2-.3.1-.2.1-.4 0-.6-0.1-.2-.7-1.7-1-2.3-.2-.5-.4-.4-.7-.4h-.6c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.5s1 2.9 1.1 3.1c.1.2 2.1 3.3 5.2 4.4.7.2 1.2.3 1.6.2.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2z" fill="#fff"/></svg>
-      </a>
     </section>
   );
 };
 
-export default AutomacaoResidencial; 
+export default AutomacaoResidencial;

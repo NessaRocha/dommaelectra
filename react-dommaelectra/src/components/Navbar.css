@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Limelight&family=Gruppo&display=swap');
 
-body, #root, .App {
+body,
+#root,
+.App {
   margin-top: 0 !important;
   padding-top: 0 !important;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -18,19 +21,20 @@ body, #root, .App {
   height: 80px;
   width: 100%;
   box-sizing: border-box;
-  overflow: visible;
+  overflow: hidden;
 }
 .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 24px;
   height: 80px;
   width: 100%;
   box-sizing: border-box;
   overflow: visible;
+  min-width: 0;
 }
 
 .navbar-logo {
@@ -40,6 +44,7 @@ body, #root, .App {
   flex-shrink: 0;
   margin-right: auto;
   z-index: 1;
+  margin-left: 0;
 }
 
 .navbar-logo .logo-img {
@@ -75,14 +80,16 @@ body, #root, .App {
 
 .navbar-menu {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   list-style: none;
-  margin: 0 6px 0 0;
+  margin: 0 8px 0 0;
   padding: 0;
   align-items: center;
   height: 100%;
   flex-shrink: 0;
   overflow: visible;
+  min-width: 0;
+  flex-wrap: nowrap;
 }
 
 .navbar-menu li {
@@ -93,10 +100,12 @@ body, #root, .App {
 
 .navbar-menu li a {
   color: #fff;
-  text-shadow: 0 2px 12px #000c, 0 1px 2px #B04A5A55;
+  text-shadow:
+    0 2px 12px #000c,
+    0 1px 2px #b04a5a55;
   font-family: 'Orbitron', Arial, sans-serif;
-  font-size: 0.28rem;
-  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
   font-weight: 700;
   padding: 4px 0;
   position: relative;
@@ -161,14 +170,14 @@ body, #root, .App {
 }
 
 .navbar-bordo .navbar-menu li a {
-  color: #7B2C3B !important;
+  color: #7b2c3b !important;
   text-shadow: none;
 }
 
 .navbar-bordo .navbar-menu li a:hover,
 .navbar-bordo .navbar-menu li a.active,
 .navbar-bordo .navbar-menu li a:focus {
-  color: #7B2C3B;
+  color: #7b2c3b;
 }
 
 .navbar-menu li a:hover::after,
@@ -189,7 +198,7 @@ body, #root, .App {
 }
 .navbar-bordo .logo-domma,
 .navbar-bordo .logo-electra {
-  color: #B04A5A !important;
+  color: #b04a5a !important;
   text-shadow: none;
 }
 
@@ -210,33 +219,37 @@ body, #root, .App {
 .navbar-menu li:not(:last-child)::after {
   content: '•';
   color: #888888;
-  margin: 0 18px;
-  font-size: 1.2em;
-  vertical-align: middle;
+  margin: 0 10px;
+  font-size: 1.1em;
+  vertical-align: text-top;
   opacity: 0.7;
 }
 
 .navbar-menu li a:focus {
-  outline: 2px solid #E0E0E0;
+  outline: 2px solid #e0e0e0;
   outline-offset: 2px;
 }
 
 .navbar-cta {
   display: inline-flex;
   align-items: center;
-  margin-left: 6px;
-  padding: 6px 12px;
-  font-size: 0.32rem;
+  justify-content: center;
+  margin-left: 8px;
+  padding: 8px 14px;
+  font-size: 0.75rem;
   font-family: 'Orbitron', Arial, sans-serif;
   font-weight: 700;
   color: #fff;
-  background: #7B2C3B;
+  background: #7b2c3b;
   border: none;
   border-radius: 4px;
   box-shadow: 0 4px 18px #0002;
   text-decoration: none;
-  letter-spacing: 0.04em;
-  transition: background 0.18s, box-shadow 0.18s, transform 0.16s;
+  letter-spacing: 0.02em;
+  transition:
+    background 0.18s,
+    box-shadow 0.18s,
+    transform 0.16s;
   cursor: pointer;
   text-align: center;
   outline: none;
@@ -246,41 +259,70 @@ body, #root, .App {
   white-space: nowrap;
   min-width: fit-content;
   z-index: 1;
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 .navbar-cta span {
   display: inline-block;
   transform: skew(12deg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cta-text-mobile {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .cta-text-desktop {
+    display: none;
+  }
+  .cta-text-mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1101px) {
+  .cta-text-desktop {
+    display: inline-block;
+  }
+  .cta-text-mobile {
+    display: none;
+  }
 }
 .navbar-cta::after {
   content: '→';
   display: inline-block;
   margin-left: 2px;
   font-size: 0.6em;
-  vertical-align: middle;
+  vertical-align: text-top;
   transform: skew(12deg);
   transition: margin-left 0.18s;
 }
-.navbar-cta:hover, .navbar-cta:focus {
-  background: #B04A5A;
-  box-shadow: 0 8px 28px #B04A5A33;
+.navbar-cta:hover,
+.navbar-cta:focus {
+  background: #b04a5a;
+  box-shadow: 0 8px 28px #b04a5a33;
   transform: skew(-12deg) translateY(-2px) scale(1.04);
   color: #fff;
   text-decoration: none;
 }
-.navbar-cta:hover::after, .navbar-cta:focus::after {
+.navbar-cta:hover::after,
+.navbar-cta:focus::after {
   margin-left: 18px;
 }
 @media (max-width: 1100px) {
   .navbar-cta {
-    font-size: 0.98rem;
-    padding: 10px 18px 10px 12px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
     margin-left: 12px;
   }
 }
 @media (max-width: 700px) {
   .navbar-cta {
-    font-size: 0.85rem;
-    padding: 7px 10px 7px 7px;
+    font-size: 0.6rem;
+    padding: 5px 8px;
     margin-left: 4px;
   }
 }
@@ -293,13 +335,16 @@ body, #root, .App {
   font-family: 'Orbitron', Arial, sans-serif;
   font-weight: 700;
   color: #fff;
-  background: #7B2C3B;
+  background: #7b2c3b;
   border: none;
   border-radius: 4px;
   box-shadow: 0 4px 18px #0002;
   text-decoration: none;
   letter-spacing: 0.08em;
-  transition: background 0.18s, box-shadow 0.18s, transform 0.16s;
+  transition:
+    background 0.18s,
+    box-shadow 0.18s,
+    transform 0.16s;
   cursor: pointer;
   text-align: center;
   outline: none;
@@ -315,18 +360,20 @@ body, #root, .App {
   display: inline-block;
   margin-left: 16px;
   font-size: 1.2em;
-  vertical-align: middle;
+  vertical-align: text-top;
   transform: skew(12deg);
   transition: margin-left 0.18s;
 }
-.banner-btn:hover, .banner-btn:focus {
-  background: #B04A5A;
-  box-shadow: 0 8px 28px #B04A5A33;
+.banner-btn:hover,
+.banner-btn:focus {
+  background: #b04a5a;
+  box-shadow: 0 8px 28px #b04a5a33;
   transform: skew(-12deg) translateY(-2px) scale(1.04);
   color: #fff;
   text-decoration: none;
 }
-.banner-btn:hover::after, .banner-btn:focus::after {
+.banner-btn:hover::after,
+.banner-btn:focus::after {
   margin-left: 22px;
 }
 @media (max-width: 1100px) {
@@ -345,25 +392,31 @@ body, #root, .App {
 @media (max-width: 1100px) {
   .navbar-container {
     height: 120px;
-    padding: 0 18px;
+    padding: 0 20px;
     overflow: visible;
   }
   .navbar-logo .logo-img {
     height: 120px;
   }
-  .logo-domma, .logo-electra {
-    font-size: 2.03rem;
+  .logo-domma,
+  .logo-electra {
+    font-size: 1.6rem;
   }
   .navbar-menu {
-    margin: 0 22px 0 0;
+    margin: 0 12px 0 0;
   }
   .navbar-menu li a {
-    font-size: 1.05rem;
+    font-size: 0.75rem;
+  }
+  .navbar-cta {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    margin-left: 10px;
   }
 }
 @media (max-width: 700px) {
   .navbar-container {
-    padding: 8px 12px;
+    padding: 8px 16px;
     height: 60px;
     overflow: visible;
   }
@@ -371,29 +424,30 @@ body, #root, .App {
     width: 40px;
     height: 40px;
   }
-  .logo-domma, .logo-electra {
-    font-size: 0.9rem;
+  .logo-domma,
+  .logo-electra {
+    font-size: 0.75rem;
   }
   .navbar-menu {
-    gap: 8px;
-    margin: 0 8px 0 0;
+    gap: 4px;
+    margin: 0 6px 0 0;
   }
   .navbar-menu li a {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     padding: 4px 0;
   }
   .navbar-cta {
-    margin-left: 8px;
-    padding: 6px 12px;
-    font-size: 0.7rem;
+    margin-left: 6px;
+    padding: 5px 10px;
+    font-size: 0.6rem;
   }
   .navbar-cta span {
     display: inline-block;
     transform: skew(12deg);
   }
   .navbar-cta::after {
-    margin-left: 6px;
-    font-size: 0.9em;
+    margin-left: 4px;
+    font-size: 0.8em;
   }
 }
 
@@ -407,17 +461,19 @@ body, #root, .App {
   top: calc(100% + 6px);
   left: 0;
   right: auto;
-  background: rgba(30,20,30,0.98);
+  background: rgba(30, 20, 30, 0.98);
   backdrop-filter: blur(15px);
   border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.7);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
   min-width: 280px;
+  max-width: 320px;
   list-style: none;
   padding: 16px 0;
   margin: 0;
   z-index: 1002;
   border: 2px solid rgba(176, 74, 90, 0.3);
   animation: dropdownFadeIn 0.3s ease;
+  overflow: hidden;
 }
 
 .dropdown a {
@@ -429,7 +485,7 @@ body, #root, .App {
 .dropdown-arrow {
   font-size: 0.8em;
   transition: transform 0.2s ease;
-  color: #B04A5A;
+  color: #b04a5a;
   font-weight: bold;
 }
 
@@ -459,15 +515,15 @@ body, #root, .App {
 .dropdown-menu li a:hover,
 .dropdown-menu li a:focus {
   background: rgba(176, 74, 90, 0.2);
-  color: #B04A5A;
+  color: #b04a5a;
   transform: translateX(8px);
   box-shadow: 0 2px 8px rgba(176, 74, 90, 0.3);
-  outline: 2px solid #B04A5A;
+  outline: 2px solid #b04a5a;
   outline-offset: -2px;
 }
 
 .dropdown-menu li a:focus {
-  outline: 2px solid #B04A5A;
+  outline: 2px solid #b04a5a;
   outline-offset: 2px;
 }
 
@@ -485,7 +541,7 @@ body, #root, .App {
   .dropdown-menu {
     min-width: 200px;
   }
-  
+
   .dropdown-menu li a {
     font-size: 0.9rem;
     padding: 10px 20px;
@@ -496,7 +552,7 @@ body, #root, .App {
   .dropdown-menu {
     min-width: 180px;
   }
-  
+
   .dropdown-menu li a {
     font-size: 0.8rem;
     padding: 8px 16px;
@@ -506,17 +562,17 @@ body, #root, .App {
 /* Melhorar acessibilidade para alto contraste */
 @media (prefers-contrast: high) {
   .dropdown-menu {
-    border: 3px solid #B04A5A;
-    background: rgba(0,0,0,0.95);
+    border: 3px solid #b04a5a;
+    background: rgba(0, 0, 0, 0.95);
   }
-  
+
   .dropdown-menu li a {
     border: 1px solid transparent;
   }
-  
+
   .dropdown-menu li a:hover,
   .dropdown-menu li a:focus {
-    border: 2px solid #B04A5A;
+    border: 2px solid #b04a5a;
     background: rgba(176, 74, 90, 0.4);
   }
 }
@@ -537,15 +593,15 @@ body, #root, .App {
   .dropdown-menu {
     animation: none;
   }
-  
+
   .dropdown-menu li a {
     transition: none;
   }
-  
+
   .dropdown-arrow {
     transition: none;
   }
-} 
+}
 
 .navbar-menu li.dropdown {
   display: flex;
@@ -556,19 +612,19 @@ body, #root, .App {
 }
 
 .navbar-menu li.dropdown > a:focus {
-  outline: 2px solid #E0E0E0;
+  outline: 2px solid #e0e0e0;
   outline-offset: 2px;
 }
 
 .dropdown-arrow {
   font-size: 0.8em;
   transition: transform 0.2s ease;
-  color: #B04A5A;
+  color: #b04a5a;
   font-weight: bold;
   margin-left: 4px;
   display: inline-block;
   min-width: 1em;
-} 
+}
 
 /* Menu Hamburger Mobile */
 .hamburger-menu {
@@ -603,7 +659,7 @@ body, #root, .App {
 }
 
 .hamburger-line.open:nth-child(3) {
-  transform: rotate(-45deg) translate(6px,-6px);
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Menu Mobile */
@@ -684,7 +740,7 @@ body, #root, .App {
   display: block;
   margin-top: 20px;
   padding: 12px 20px;
-  background: #7C3B;
+  background: #7c3b;
   color: #fff;
   text-decoration: none;
   text-align: center;
@@ -711,7 +767,7 @@ body, #root, .App {
   }
   .navbar-container {
     justify-content: space-between;
-    overflow: visible;
+    overflow: hidden;
   }
   .navbar-logo {
     margin-left: 0;
@@ -727,14 +783,14 @@ body, #root, .App {
   .mobile-menu {
     display: none;
   }
-  
+
   .desktop-menu,
   .desktop-cta {
     display: flex;
   }
-  
+
   /* Mostrar botão verde apenas no desktop */
   .navbar-cta {
     display: inline-flex !important;
   }
-} 
+}
