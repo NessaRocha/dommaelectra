@@ -86,6 +86,7 @@ const Navbar = () => {
               </button>
               {showDropdown && (
                 <ul className='dropdown-menu'>
+                  {console.log('Dropdown items:', servicesArray)}
                   {servicesArray.map(service => (
                     <li key={service.id}>
                       <button
