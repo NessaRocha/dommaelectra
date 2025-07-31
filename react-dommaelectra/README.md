@@ -30,13 +30,15 @@ O **Domma Electra** é um site profissional desenvolvido para uma empresa de aut
 - **Animações Suaves**: Efeitos de entrada e transições otimizadas para performance
 - **Navegação Intuitiva**: Menu dropdown e sidebar interativo
 - **Performance Otimizada**: Carregamento rápido e SEO-friendly
+- **Código Limpo**: Estrutura profissional com documentação JSDoc
+- **Palavras-chave da Marca**: Conectar, Proteger, Cuidar - identidade visual da empresa
 
 ## ✨ Funcionalidades
 
 ### 🏠 **Seções Principais**
 - **Hero Section**: Slider automático com transições suaves
 - **Serviços**: Apresentação detalhada de cada solução de automação
-- **Sobre**: Informações da empresa e diferenciais
+- **Sobre**: Informações da empresa com palavras-chave da marca (Conectar, Proteger, Cuidar)
 - **Contato**: Formulário de orçamento integrado
 
 ### 🎮 **Interatividade**
@@ -44,11 +46,27 @@ O **Domma Electra** é um site profissional desenvolvido para uma empresa de aut
 - **Sidebar Dinâmico**: Modal com detalhes dos serviços
 - **Animações Scroll-triggered**: Efeitos ativados conforme o usuário rola
 - **Hover Effects**: Interações visuais em botões e imagens
+- **Palavras-chave Interativas**: Efeitos hover nas palavras-chave da marca
 
 ### 📱 **Responsividade**
 - **Mobile First**: Design otimizado para dispositivos móveis
 - **Breakpoints Inteligentes**: Adaptação em múltiplos tamanhos de tela
 - **Touch Friendly**: Interface otimizada para toque
+
+## 🆕 Melhorias Recentes
+
+### **✨ Atualizações Implementadas**
+- **Componente Sobre Modernizado**: Design com gradiente vermelho escuro e animações dinâmicas
+- **Palavras-chave da Marca**: Implementação visual das palavras "Conectar", "Proteger", "Cuidar"
+- **Código Limpo**: Remoção de código desnecessário e documentação JSDoc completa
+- **Performance Otimizada**: Estrutura de componentes otimizada e CSS organizado
+- **Deploy Automatizado**: Configuração Vercel para deploy contínuo via GitHub
+
+### **🎯 Funcionalidades Adicionadas**
+- **Animações de Entrada**: Efeitos suaves para palavras-chave e conteúdo
+- **Design Glassmorphism**: Efeitos modernos com backdrop-filter
+- **Responsividade Aprimorada**: Melhor adaptação em todos os dispositivos
+- **Acessibilidade**: ARIA labels e navegação por teclado
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -82,6 +100,7 @@ react-dommaelectra/
 │   │   ├── Navbar.jsx      # Navegação principal
 │   │   ├── ShowcaseAlternado.jsx  # Seções de conteúdo
 │   │   ├── AutomacaoResidencial.jsx # Hero slider
+│   │   ├── Sobre.jsx       # Seção sobre com palavras-chave
 │   │   ├── Sidebar.jsx     # Modal de serviços
 │   │   ├── Footer.jsx      # Rodapé
 │   │   └── *.css           # Estilos dos componentes
