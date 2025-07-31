@@ -92,6 +92,11 @@ body,
   position: relative;
 }
 
+.nav-item.dropdown {
+  position: relative;
+  z-index: 9999;
+}
+
 .nav-link {
   color: #fff;
   text-shadow: 0 2px 12px #000c, 0 1px 2px #b04a5a55;
@@ -192,6 +197,7 @@ body,
   top: calc(100% + 6px);
   left: 0;
   right: auto;
+  transform: translateZ(0);
   background: rgba(30, 20, 30, 0.98);
   backdrop-filter: blur(15px);
   border-radius: 12px;
@@ -201,7 +207,7 @@ body,
   list-style: none;
   padding: 16px 0;
   margin: 0;
-  z-index: 5000;
+  z-index: 9999;
   border: 2px solid rgba(176, 74, 90, 0.3);
   animation: dropdownFadeIn 0.3s ease;
   overflow: hidden;
