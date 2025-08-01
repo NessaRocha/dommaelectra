@@ -82,8 +82,7 @@ span {
   font-weight: 400;
 }
 
-.banner-btn,
-.footer-newsletter button {
+.banner-btn {
   font-size: 1rem !important;
   font-family: 'Orbitron', Arial, sans-serif;
 }
@@ -116,8 +115,7 @@ span {
   .footer-copy {
     font-size: 0.85rem !important;
   }
-  .banner-btn,
-  .footer-newsletter button {
+  .banner-btn {
     font-size: 0.8rem !important;
   }
 }

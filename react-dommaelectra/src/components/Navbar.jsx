@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { servicesArray } from '../data/services';
 import './Navbar.css';
 
 /**
@@ -10,7 +9,6 @@ import './Navbar.css';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,31 +20,9 @@ const Navbar = () => {
   }, []);
 
   // Fechar dropdown quando clicar fora
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (showDropdown && !event.target.closest('.dropdown')) {
-        setShowDropdown(false);
-      }
-    };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [showDropdown]);
 
-  // Handlers para navegação e interação
-  const handleServiceClick = serviceId => {
-    setShowDropdown(false);
-    setIsMobileMenuOpen(false);
-    const element = document.getElementById(serviceId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
-  const toggleDropdown = e => {
-    e.preventDefault();
-    setShowDropdown(!showDropdown);
-  };
 
   const handleKeyDown = (e, action) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -57,7 +33,6 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    setShowDropdown(false);
   };
 
   return (
@@ -74,40 +49,19 @@ const Navbar = () => {
         {/* Menu de Navegação */}
         <div className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           <ul className='navbar-nav'>
-            <li className='nav-item dropdown'>
-              <button
-                className='nav-link dropdown-toggle'
-                onClick={toggleDropdown}
-                onKeyDown={e => handleKeyDown(e, toggleDropdown)}
-                aria-expanded={showDropdown}
-                aria-haspopup='true'
-              >
+            <li className='nav-item'>
+              <a href='#servicos' className='nav-link'>
                 Serviços
-              </button>
-              {showDropdown && (
-                <ul className='dropdown-menu'>
-                  {console.log('Dropdown items:', servicesArray)}
-                  {servicesArray.map(service => (
-                    <li key={service.id}>
-                      <button
-                        className='dropdown-item'
-                        onClick={() => handleServiceClick(service.id)}
-                        onKeyDown={e => handleKeyDown(e, () => handleServiceClick(service.id))}
-                      >
-                        {service.title}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              </a>
             </li>
+
             <li className='nav-item'>
               <a href='#sobre' className='nav-link'>
                 Sobre
               </a>
             </li>
             <li className='nav-item'>
-              <a href='#contato' className='nav-link'>
+              <a href='https://wa.me/5551996138467?text=Olá! Gostaria de conversar sobre automação residencial.' className='nav-link' target='_blank' rel='noopener noreferrer'>
                 Contato
               </a>
             </li>

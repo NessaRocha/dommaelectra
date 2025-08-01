@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './Footer.css';
 import whatsapp from '../assets/whatsapp.svg';
 import linkedin from '../assets/linkedin.svg';
@@ -83,7 +83,6 @@ const icons = {
 };
 
 const Footer = () => {
-  const emailRef = useRef();
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -111,22 +110,7 @@ const Footer = () => {
             </li>
           </ul>
         </nav>
-        <form className='footer-newsletter' onSubmit={e => e.preventDefault()}>
-          <label htmlFor='newsletter-email' className='sr-only'>
-            Cadastre-se para novidades
-          </label>
-          <input
-            ref={emailRef}
-            type='email'
-            id='newsletter-email'
-            name='newsletter-email'
-            placeholder='Seu e-mail...'
-            autoComplete='email'
-            required
-            aria-label='Seu e-mail'
-          />
-          <button type='submit'>Cadastrar e receber novidades</button>
-        </form>
+
         <div className='footer-social-row'>
           <a href='mailto:dommaelectra@gmail.com' aria-label='E-mail'>
             {icons.email}
