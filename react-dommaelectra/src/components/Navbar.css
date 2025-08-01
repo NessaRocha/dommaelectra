@@ -97,6 +97,16 @@ body,
   z-index: 99999;
 }
 
+/* Garantir que o dropdown sempre apareça por cima */
+.dropdown-menu {
+  position: fixed !important;
+  top: 70px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 999999 !important;
+  pointer-events: auto !important;
+}
+
 .nav-link {
   color: #fff;
   text-shadow: 0 2px 12px #000c, 0 1px 2px #b04a5a55;
@@ -193,11 +203,10 @@ body,
 }
 
 .dropdown-menu {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  right: auto;
-  transform: translateZ(0);
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(30, 20, 30, 0.98);
   backdrop-filter: blur(15px);
   border-radius: 12px;
